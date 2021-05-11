@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>防抖与节流 | Felicity的笔记本</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="description" content="旧书不厌百回读，熟读深思子自知">
+    <link rel="preload" href="/assets/css/0.styles.ccac5a78.css" as="style"><link rel="preload" href="/assets/js/app.04cf801e.js" as="script"><link rel="preload" href="/assets/js/2.a854afe6.js" as="script"><link rel="preload" href="/assets/js/11.8796721f.js" as="script"><link rel="prefetch" href="/assets/js/10.f3cbabb8.js"><link rel="prefetch" href="/assets/js/12.2c9e3669.js"><link rel="prefetch" href="/assets/js/13.a548d7c2.js"><link rel="prefetch" href="/assets/js/14.218e1174.js"><link rel="prefetch" href="/assets/js/15.50ad215d.js"><link rel="prefetch" href="/assets/js/16.aca784d2.js"><link rel="prefetch" href="/assets/js/17.06643324.js"><link rel="prefetch" href="/assets/js/18.9bd15840.js"><link rel="prefetch" href="/assets/js/19.9dd0fe6c.js"><link rel="prefetch" href="/assets/js/20.8f3d6e79.js"><link rel="prefetch" href="/assets/js/21.cfd1acce.js"><link rel="prefetch" href="/assets/js/22.06b2fd01.js"><link rel="prefetch" href="/assets/js/23.b91608a5.js"><link rel="prefetch" href="/assets/js/24.b8baa705.js"><link rel="prefetch" href="/assets/js/25.6a0f76b3.js"><link rel="prefetch" href="/assets/js/26.93c3674f.js"><link rel="prefetch" href="/assets/js/27.c41d6a07.js"><link rel="prefetch" href="/assets/js/28.67efba8a.js"><link rel="prefetch" href="/assets/js/29.596bf528.js"><link rel="prefetch" href="/assets/js/3.4ad4875a.js"><link rel="prefetch" href="/assets/js/30.11dc1a7f.js"><link rel="prefetch" href="/assets/js/31.a2716ec5.js"><link rel="prefetch" href="/assets/js/32.33cec965.js"><link rel="prefetch" href="/assets/js/33.f52dcc66.js"><link rel="prefetch" href="/assets/js/34.990414af.js"><link rel="prefetch" href="/assets/js/4.1cfc2f80.js"><link rel="prefetch" href="/assets/js/5.34b04f7b.js"><link rel="prefetch" href="/assets/js/6.7c57aeed.js"><link rel="prefetch" href="/assets/js/7.9348dc28.js"><link rel="prefetch" href="/assets/js/8.2eeb1601.js"><link rel="prefetch" href="/assets/js/9.931fa76b.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ccac5a78.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/avatar.png" alt="Felicity的笔记本" class="logo"> <span class="site-name can-hide">Felicity的笔记本</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="分类指引" class="dropdown-title"><span class="title">分类指引</span> <span class="arrow down"></span></button> <button type="button" aria-label="分类指引" class="mobile-dropdown-title"><span class="title">分类指引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Js/" class="nav-link router-link-active">
+  Js
+</a></li><li class="dropdown-item"><!----> <a href="/Vue/Vue基础/插槽.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/React/umiJs.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/Vscode/主题及配色.html" class="nav-link">
+  Vscode
+</a></li><li class="dropdown-item"><!----> <a href="/数据结构与算法/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/TS/高级类型.html" class="nav-link">
+  TS
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="延伸拓展" class="dropdown-title"><span class="title">延伸拓展</span> <span class="arrow down"></span></button> <button type="button" aria-label="延伸拓展" class="mobile-dropdown-title"><span class="title">延伸拓展</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/交互设计/" class="nav-link">
+  交互设计
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/Felicity-Gao" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://www.jianshu.com/u/56e563067653" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书主页
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="分类指引" class="dropdown-title"><span class="title">分类指引</span> <span class="arrow down"></span></button> <button type="button" aria-label="分类指引" class="mobile-dropdown-title"><span class="title">分类指引</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/Js/" class="nav-link router-link-active">
+  Js
+</a></li><li class="dropdown-item"><!----> <a href="/Vue/Vue基础/插槽.html" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/React/umiJs.html" class="nav-link">
+  React
+</a></li><li class="dropdown-item"><!----> <a href="/Vscode/主题及配色.html" class="nav-link">
+  Vscode
+</a></li><li class="dropdown-item"><!----> <a href="/数据结构与算法/" class="nav-link">
+  数据结构与算法
+</a></li><li class="dropdown-item"><!----> <a href="/TS/高级类型.html" class="nav-link">
+  TS
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="延伸拓展" class="dropdown-title"><span class="title">延伸拓展</span> <span class="arrow down"></span></button> <button type="button" aria-label="延伸拓展" class="mobile-dropdown-title"><span class="title">延伸拓展</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/交互设计/" class="nav-link">
+  交互设计
+</a></li></ul></div></div><div class="nav-item"><a href="https://github.com/Felicity-Gao" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  GitHub
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://www.jianshu.com/u/56e563067653" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  简书主页
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JS基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>深入学习</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/Js/防抖与节流.html" class="active sidebar-link">防抖与节流</a></li><li><a href="/Js/设计模式.html" class="sidebar-link">设计模式与原则</a></li><li><a href="/Js/高阶函数.html" class="sidebar-link">高阶函数</a></li><li><a href="/Js/正则.html" class="sidebar-link">正则</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="防抖与节流"><a href="#防抖与节流" class="header-anchor">#</a> 防抖与节流</h1> <p><strong>背景：</strong> 都是为了解决因为频繁操作而大量触发某函数所导致的性能问题：浪费请求资源；触发频率过高导致的响应速度跟不上触发频率，出现延迟，假死，卡顿等现象。
+但是，二者应对的业务需求不一样，所以实现原理也不一样。</p> <h2 id="防抖"><a href="#防抖" class="header-anchor">#</a> 防抖</h2> <h3 id="_1-原理"><a href="#_1-原理" class="header-anchor">#</a> 1. 原理</h3> <p>在被触事件发n秒后再去调用函数，如果在n秒内再次触发该事件则重新开始记时，直到n秒内不再触发该事件则调用一次该函数。</p> <h3 id="_2-应用场景"><a href="#_2-应用场景" class="header-anchor">#</a> 2. 应用场景</h3> <ol><li>浏览器的<code>resize</code>, <code>scroll</code>事件，不断的调整浏览器窗口大小，或者滚动鼠标会触发对应的事件</li> <li>用户在搜索输入框不断的输入字符时，只会在最后一次输入完成时才会发送请求</li> <li>频繁点击按钮，触发某个事件</li></ol> <h3 id="_3-代码实现"><a href="#_3-代码实现" class="header-anchor">#</a> 3. 代码实现</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code> <span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> immediate</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+   <span class="token keyword">let</span> timmer <span class="token operator">=</span> <span class="token keyword">null</span> <span class="token comment">// 使用闭包特性，添加不会被清除timmer变量</span>
+   immediate <span class="token operator">=</span> immediate <span class="token operator">||</span> <span class="token boolean">false</span>
+   <span class="token keyword">let</span> <span class="token function-variable function">handelFn</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token comment">// 再次触发时如果已存在定时器，则清除</span>
+    <span class="token comment">// 获取this，和参数</span>
+    <span class="token keyword">let</span> _this <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token keyword">let</span> _arg <span class="token operator">=</span> arguments <span class="token comment">// arguments 是一个类数组对象，存在于非箭头函数中</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>immediate<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// 立即执行</span>
+      <span class="token keyword">let</span> invoked <span class="token operator">=</span> <span class="token operator">!</span>timer <span class="token comment">// 是否立即调用过了</span>
+      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        timer <span class="token operator">=</span> <span class="token keyword">null</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>delay<span class="token punctuation">)</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>invoked<span class="token punctuation">)</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>_this<span class="token punctuation">,</span> <span class="token operator">...</span>_arg<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>_this<span class="token punctuation">,</span> <span class="token operator">...</span>_arg<span class="token punctuation">)</span> <span class="token comment">// 或者 fn.apply(_this, _arg)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>delay<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> 
+   <span class="token punctuation">}</span>
+   <span class="token comment">// 在定时过程中取消操作</span>
+   handelFn<span class="token punctuation">.</span><span class="token function-variable function">cancel</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+     <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">return</span> handelFn
+ <span class="token punctuation">}</span>
+ <span class="token comment">// 注：还可以利用promise的resolve或回调函数添加返回值，但再加就太复杂了，具体代码直接写代码库了</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br></div></div><h2 id="节流"><a href="#节流" class="header-anchor">#</a> 节流</h2> <h3 id="原理"><a href="#原理" class="header-anchor">#</a> 原理</h3> <p>规定一个时间，同一单位时间内多次触发事件只能执行一次。</p> <h3 id="应用场景"><a href="#应用场景" class="header-anchor">#</a> 应用场景</h3> <ol><li>频繁点击按钮</li> <li>鼠标移动</li> <li>监听滚动事件，是否滑动到底部自动加载更多</li> <li>无限加载，需要在用户滚动滚轮时每隔一段时间请求一次ajax而不是停止滚动后请求</li></ol> <h3 id="_3-代码实现-2"><a href="#_3-代码实现-2" class="header-anchor">#</a> 3. 代码实现</h3> <div class="language-javascript line-numbers-mode"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay<span class="token punctuation">,</span> trailing</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">let</span> last <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">var</span> trailing <span class="token operator">=</span> trailing <span class="token operator">||</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">let</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">let</span> _this <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token keyword">let</span> _arg <span class="token operator">=</span> arguments
+    <span class="token keyword">if</span><span class="token punctuation">(</span>last <span class="token operator">-</span> now <span class="token operator">&gt;</span> delay<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>_this<span class="token punctuation">,</span>_arg<span class="token punctuation">)</span>
+      last <span class="token operator">=</span> now
+    <span class="token punctuation">}</span><span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>timer <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> trailing<span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">// 最后一次是否执行</span>
+      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        timer <span class="token operator">=</span> <span class="token keyword">null</span>
+        <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>_this<span class="token punctuation">,</span>_arg<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>delay<span class="token punctuation">)</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 注：还可以增加取消优化，返回值优化，但是整体思路与防抖函数一致就不再增加代码的阅读难度了</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br></div></div></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新时间:</span> <span class="time">8/21/2020, 1:25:22 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/Js/知识杂记.html" class="prev">
+        杂记篇
+      </a></span> <span class="next"><a href="/Js/设计模式.html">
+        设计模式与原则
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.04cf801e.js" defer></script><script src="/assets/js/2.a854afe6.js" defer></script><script src="/assets/js/11.8796721f.js" defer></script>
+  </body>
+</html>
